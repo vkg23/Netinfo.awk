@@ -24,4 +24,5 @@ Can Run as Normal / Root user locally in the system.
 
 
 # Sample Result
-[Refer Code]
+[Refer Code ]
+https://github.com/vkg23/Netinfo.awk/blob/main/Netinfo.awk
