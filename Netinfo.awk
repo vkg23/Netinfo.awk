@@ -95,3 +95,15 @@ BEGIN {
 {print "Done"; exit 0}
 END {}
 
+#End of Code
+
+#Reference / V5: Sample output
+#awk -f Netinfo.awk
+#Filter IPV4(-4) : No
+
+#Device     Name        Bond        Mac                     Mac(perm)           State       IP/Net  
+#/          lo                                                                  UNKNOWN()   127.0.0.1/8
+#02:01      eno1        bond0       12:23:34:44:45:56      12:23:34:44:45:00    UP(10G) 
+#02:01      eno2        bond0       12:23:34:44:45:56      12:23:34:44:45:01    UP(10G)
+#02:01      eno3                    12:23:34:44:45:58                           DOWN(10G)   192.168.0.11/24,fdb4:a9d0:15e6:a052::/64
+#02:01      bond0                   12:23:34:44:11:11                                       192.168.0.12/24,192.168.0.20/24
