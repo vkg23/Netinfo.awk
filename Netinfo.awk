@@ -5,6 +5,7 @@
 #Maps network interface , PCI => Ethname => Bond => Mac => Perm Mac => State/Speed => IP Address(s)
 #Tested for Physical Servers with RHEL 6/7/8 , CentOS
 #How to Run  [ Runs as Normal / Root user ]
+#AWK V3 or Above
 #awk -f Netinfo.awk or ./Netinfo.awk (optional argument '-4' for filtering only IPV4, else includes IPV6 by default)
 #RoadMap:
 #Cleanup , Error Checks/Debugs , Formatting for VM results, Remote Call options. 
