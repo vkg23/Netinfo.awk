@@ -21,3 +21,7 @@ Can Run as Normal / Root user locally in the system.
 
 # RoadMap:
 #Cleanup , Error Checks/Debugs , Formatting for VM results, Remote Call options. 
+
+
+# Sample Result
+[Refer Code]
