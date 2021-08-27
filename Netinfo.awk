@@ -18,7 +18,7 @@ function checkFile(filename) {
 function foo() {
     if(intname !~ /bond/){
         devfile="/sys/class/net/"intname"/device"
-        cmdsub="ls -l "devfile "2>/dev/null"
+        cmdsub="ls -l "devfile" 2> /dev/null"
         cmdsub | getline devlink
         close(cmdsub)
         split(devlink,tmp,"/");
@@ -34,8 +34,8 @@ function foo() {
 
 BEGIN {
     id = 0 
-    if (checkFile("/usr/bin/ip") == 0) {ipcmd="/usr/bin/ip"}
-    else if (checkFile("/sbin/ip") {ipcmd="/sbin/ip"}
+    if (checkFile("/usr/sbin/ip") == 0) {ipcmd="/usr/sbin/ip"}
+    else if (checkFile("/sbin/ip")) {ipcmd="/sbin/ip"}
     else {print "Error! IP Command not found [/usr/bin/ip or /sbin/ip]\n Check if \"iproute\" rpm exists"; exit}
 
     cmd=ipcmd" -o link show"
@@ -60,7 +60,7 @@ BEGIN {
         }
     }    
     close(cmd)
-    if (ARGV[1])=="-4" {
+    if (ARGV[1])=="-4") {
         print "Filter ipv4(-4):","Yes"
         cmd=ipcmd" -o -4 addr show"
     } else {
@@ -80,12 +80,12 @@ BEGIN {
     }
     close(cmd)
     print "____________________________________________________________"
-    print "%15s\t%6s\t%5s\t%20s\t%20s\t%10s\t%18s\n","Device","Name","Bond","Mac","Mac(perm)","State","Ip/Net"
+    printf "%15s\t%6s\t%5s\t%20s\t%20s\t%10s\t%18s\n","Device","Name","Bond","Mac","Mac(perm)","State","Ip/Net"
     print "____________________________________________________________"
     for (x=1;x<length(intArray);x++) {
         i=intArray[x]
         state=a1[i,"state"]"("a1[i,"speed"]")"
-        print "%15s\t%6s\t%5s\t%20s\t%20s\t%10s\t%18s\n",a1[i,"pci"],a1[i,"name"],a1[i,"bond"],a1[i,"mac"],a1[i,"pmac"],state,a1[i,"ip"]
+        printf "%15s\t%6s\t%5s\t%20s\t%20s\t%10s\t%18s\n",a1[i,"pci"],a1[i,"name"],a1[i,"bond"],a1[i,"mac"],a1[i,"pmac"],state,a1[i,"ip"]
     }
     print "____________________________________________________________"
     print "Press Enter to Exit!"
