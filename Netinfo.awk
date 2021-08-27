@@ -60,7 +60,7 @@ BEGIN {
         }
     }    
     close(cmd)
-    if (ARGV[1])=="-4") {
+    if (ARGV[1]=="-4") {
         print "Filter ipv4(-4):","Yes"
         cmd=ipcmd" -o -4 addr show"
     } else {
