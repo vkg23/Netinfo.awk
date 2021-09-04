@@ -1,5 +1,5 @@
 # Netinfo.awk // 
-A Linux Infra Network Configuration Mapper
+A Linux Infra Network Interface Configuration Mapper
 
 # Description
 VipinkG/Vkg23/awk/LinuxNetinfoMapper  Version:5
