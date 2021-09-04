@@ -11,12 +11,12 @@
 #Cleanup , Error Checks/Debugs , Formatting for VM results, Remote Call options. 
 
 function checkFile(filename) {
-if( system(" test -f "filename) == 0 ) {return 0} else {return 1}
+if( system( "test -f "filename) == 0 ) {return 0} else {return 1}
 }
 
 
 function foo() {
-    if(intname!~/bond/){
+    if(intname!~/bond/) {
         devfile="/sys/class/net/"intname"/device"
         cmdsub="ls -l "devfile " 2> /dev/null"
         cmdsub|getline devlink
@@ -33,14 +33,14 @@ function foo() {
 }
 
 BEGIN {
-    id=0 
+    id=0
 
     if (checkFile("/usr/sbin/ip") == 0) {ipcmd="/usr/sbin/ip" }
     else if (checkFile("/sbin/ip") == 0) {ipcmd="/sbin/ip"}
-    else {print "Error! IP Command not found [/usr/sbin/ip or /sbin/ip], Check if \"iproute\" rpm exists?" ; exit}
+    else {print " Error! IP Command not found [/usr/sbin/ip or /sbin/ip], Check if \"iproute\" rpm exists?" ; exit}
 
-    cmd=ipcmd" -o link show";
-    while ((cmd|getline) > 0) {
+    cmd=ipcmd" -o link show" ;
+    while ((cmd|getline) > 0){
         intname=$2
         id++
         gsub(/:$/,"",intname)
@@ -48,9 +48,9 @@ BEGIN {
         a1[intname,"name"]=intname;
         a1[intname,"ip"];
         foo()
-        if(intname!~/bond/) {if ($0~/bond[0-9]*/){
+        if(intname!~/bond/) {if ($0~/bond[0-9]*/) {
             #print "Part of Bond, So reading slave perm address."
-			ethfile="/sys/class/net/"intname"/bonding_slave/perm_hwaddr"
+				ethfile="/sys/class/net/"intname"/bonding_slave/perm_hwaddr"
 
             getline pmac < ethfile
             a1[intname,"pmac"]=pmac;
@@ -72,8 +72,8 @@ BEGIN {
     print "Filter ipv4(-4):","Yes"
     cmd=ipcmd" -o -4 addr show"
     } else {
-        print "Filter ipv4(-4):","No"
-        cmd=ipcmd" -o addr show"
+       print "Filter ipv4(-4):","No"
+       cmd=ipcmd" -o addr show" ;
     }
     while ((cmd|getline) > 0){
         intname=$2
@@ -101,8 +101,8 @@ BEGIN {
     print "Press Enter to Exit!"
     exit
 	}
-{print "Done"; exit 0}
-END {}
+{print "Done!"; exit 0}
+END{}
 #End of Code
 #Reference / V5: Sample output
 #awk -f Netinfo.awk
